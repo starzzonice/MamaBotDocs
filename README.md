@@ -1,4 +1,4 @@
-# Condiciones de Servicio de MamaBot
+# Condiciones de Servicio de StarzzBot
 
 **Última actualización:** 25 de junio de 2026
 
