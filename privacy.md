@@ -4,19 +4,19 @@ markdown# Política de Privacidad de MamaBot
 
 En la comunidad de nuestra creadora de contenido de YouTube
 
-Valoramos tu privacidad. Esta Política de Privacidad explica de manera transparente cómo **MamaBot** maneja la información dentro de tu servidor de Discord.
+Valoramos tu privacidad. Esta Política de Privacidad explica de manera transparente cómo **StarzzBot** maneja la información dentro de tu servidor de Discord.
 
 ---
 
 ## 1. Información que recopilamos
-**MamaBot** solo procesa la información estrictamente necesaria para interactuar contigo y automatizar las funciones del servidor:
+**StarzzBot** solo procesa la información estrictamente necesaria para interactuar contigo y automatizar las funciones del servidor:
 
 * **Identificadores únicos (IDs):** Almacenamos el ID de tu cuenta de Discord y el ID del servidor para guardar configuraciones personalizadas, roles y niveles de entretenimiento.
 * **Datos de perfil público:** El bot lee temporalmente tu nombre de usuario y avatar de Discord para mostrarlos en comandos específicos (por ejemplo, tarjetas de bienvenida).
 * **Contenido de mensajes:** El bot solo procesa el texto de los mensajes que comienzan con su prefijo de comando o mención directa para poder responderte. No registra ni lee conversaciones privadas.
 
 ## 2. Lo que NO recopilamos
-Para tu total tranquilidad, **MamaBot**:
+Para tu total tranquilidad, **StarzzBot**:
 * **No** recopila datos personales como correos electrónicos, nombres reales o ubicaciones.
 * **No** solicita ni almacena información financiera, contraseñas ni datos bancarios.
 * **No** graba ni almacena conversaciones de canales de voz.
