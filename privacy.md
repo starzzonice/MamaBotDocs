@@ -1,4 +1,4 @@
-markdown# Política de Privacidad de MamaBot
+markdown# Política de Privacidad de StarzzBot
 
 **Última actualización:** 25 de junio de 2026
 
