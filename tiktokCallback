@@ -1,1 +1,148 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TikTok OAuth Callback - MamaYoutuberBot</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #fff7fb;
+        color: #27151f;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      main {
+        width: min(720px, 100%);
+        background: #ffffff;
+        border: 1px solid #f3c7dc;
+        border-radius: 12px;
+        box-shadow: 0 16px 40px rgba(70, 20, 50, 0.12);
+        padding: 28px;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: 26px;
+      }
+
+      p {
+        line-height: 1.55;
+      }
+
+      .status {
+        padding: 14px 16px;
+        border-radius: 8px;
+        background: #fff0f7;
+        border: 1px solid #f3bdd7;
+        margin: 18px 0;
+      }
+
+      label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 110px;
+        box-sizing: border-box;
+        border: 1px solid #d9b5c7;
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 15px;
+        resize: vertical;
+      }
+
+      button {
+        margin-top: 12px;
+        border: 0;
+        border-radius: 8px;
+        background: #ff4fa3;
+        color: #ffffff;
+        font-weight: 700;
+        padding: 12px 16px;
+        cursor: pointer;
+      }
+
+      button:disabled {
+        background: #c8a3b6;
+        cursor: not-allowed;
+      }
+
+      code {
+        background: #fff0f7;
+        border-radius: 6px;
+        padding: 2px 5px;
+      }
+
+      .small {
+        color: #6d5362;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>TikTok conectado con MamaYoutuberBot</h1>
+      <p>
+        TikTok te redirigio correctamente. Copia el codigo de autorizacion y guardalo
+        para cambiarlo por un token de acceso en el bot.
+      </p>
+
+      <div class="status" id="status">Leyendo respuesta de TikTok...</div>
+
+      <label for="code">Codigo de autorizacion</label>
+      <textarea id="code" readonly></textarea>
+      <button id="copy" type="button">Copiar codigo</button>
+
+      <p class="small">
+        Esta pagina no guarda datos. Solo muestra el parametro <code>code</code> que TikTok
+        devuelve en la URL. Si aparece un error, revisa que la Redirect URI registrada en
+        TikTok coincida exactamente con esta pagina.
+      </p>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+      const error = params.get("error");
+      const errorDescription = params.get("error_description");
+      const codeBox = document.getElementById("code");
+      const statusBox = document.getElementById("status");
+      const copyButton = document.getElementById("copy");
+
+      if (code) {
+        codeBox.value = code;
+        statusBox.textContent = "Codigo recibido correctamente.";
+        copyButton.disabled = false;
+      } else if (error) {
+        codeBox.value = "";
+        statusBox.textContent = `TikTok devolvio un error: ${errorDescription || error}`;
+        copyButton.disabled = true;
+      } else {
+        codeBox.value = "";
+        statusBox.textContent = "No encontre el parametro code en la URL.";
+        copyButton.disabled = true;
+      }
+
+      copyButton.addEventListener("click", async () => {
+        await navigator.clipboard.writeText(codeBox.value);
+        copyButton.textContent = "Copiado";
+        setTimeout(() => {
+          copyButton.textContent = "Copiar codigo";
+        }, 1600);
+      });
+    </script>
+  </body>
+</html>
 
